@@ -172,12 +172,14 @@ Loadbalancer/
 
 Execute the test suite:
 ```bash
-python -m pytest tests/
+python -m unittest discover tests/ -v
 ```
 
-Run tests with coverage:
+Run individual test modules:
 ```bash
-python -m pytest tests/ --cov=src --cov-report=html
+python -m unittest tests.test_consistent_hash -v
+python -m unittest tests.test_load_balancer -v
+python -m unittest tests.test_virtual_node -v
 ```
 
 ### Code Style
@@ -221,7 +223,7 @@ Typical performance characteristics:
 1. Fork the repository
 2. Create a feature branch: `git checkout -b feature-name`
 3. Make your changes and add tests
-4. Ensure all tests pass: `python -m pytest tests/`
+4. Ensure all tests pass: `python -m unittest discover tests/ -v`
 5. Submit a pull request
 
 ## License
